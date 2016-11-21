@@ -65,13 +65,19 @@
 "Some nice string"
 (class "A nice string")
 
-; boolean
-true
-false
-(class true)
+(str "Merge " 42 " a string.")
+(string? 42)
 
 ; no value
 nil
 (class nil)
+
+; boolean
+true
+false
+(class true)
+; falsy: false and nil, everything else is truthy
+(boolean nil)
+(boolean 0)
 
 ;

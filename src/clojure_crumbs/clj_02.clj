@@ -21,6 +21,11 @@ update!
 ; / separates namespace
 some-namespace/some-symbol
 
+(symbol "my-variable*name'!?")
+(symbol "my-ns" "my-var")
+(symbol? 'my-var)
+(symbol? 42)
+
 ; . qualifies class names
 java.lang.Long
 (class java.lang.Long)
@@ -45,5 +50,8 @@ java.lang.Long
 ; default namespace via ::
 ::namespaced-from-the-local-ns
 
+(keyword "my-ns" "my-keyword")
+(keyword? :name)
+(keyword? 42)
 
 ;
