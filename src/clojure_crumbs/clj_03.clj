@@ -168,4 +168,10 @@ joe
 ; once you learn a function,
 ;  you'll be able to use it in any context, where it may make any sense
 
+
+; Compare to Java
+{:first-name "Joe"
+ :last-name  "Doe"
+ :age        42}
+
 ;
