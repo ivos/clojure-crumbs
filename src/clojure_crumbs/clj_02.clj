@@ -10,6 +10,7 @@
 ; Start with non-numeric char
 ; May contain alphanumeric and *, +, !, -, _, ', ?
 'my-variable*name'!?
+(class 'my-variable*name'!?)
 my-variable*name'!?
 
 ; predicates typically end with ?
@@ -46,9 +47,13 @@ java.lang.Long
 
 ; may be namespaced
 :customer/last-name
+:supplier/last-name
+(namespace :last-name)
+(namespace :supplier/last-name)
 
 ; default namespace via ::
 ::namespaced-from-the-local-ns
+(namespace ::namespaced-from-the-local-ns)
 
 (keyword "my-ns" "my-keyword")
 (keyword? :name)
