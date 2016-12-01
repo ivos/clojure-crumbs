@@ -15,7 +15,7 @@
 ; List
 ; ====
 
-(1 2 3)
+;(1 2 3)
 '(1 2 3)
 (list 1 2 3)
 (list 1, 2, 3)
@@ -33,6 +33,7 @@
 (rest '(3))
 (last '(1 2 3))
 (butlast '(1 2 3))
+(nth '(1 2 3) 1)
 ; stack-based access
 (peek '(1 2 3))
 (pop '(1 2 3))
@@ -48,26 +49,32 @@
 (count [1 2 3])
 (conj [1 2 3] 4 5)
 (seq [1 2 3])
-; vector-based access
 (first [1 2 3])
+; vector-based access
 (get [1 2 3] 1)
 (nth [1 2 3] 1)
 (peek [1 2 3])
 (rseq [1 2 3])
+(last [1 2 3])
 (first (rseq [1 2 3]))
 (assoc [1 2 3] 1 4)
-(assoc [1 2 3] 1 4 3 5 4 6)
+(assoc [1 2 3] 1 4, 3 5, 4 6)
 (pop [1 2 3])
 (subvec [1 2 3 4 5] 1 3)
+; replace values (not keys)
 (replace {2 4} [1 2 3 2])
 ; list -> vector
+;  convert seq to vector
 (vec '(1 2 3))
-(vector '(1 2 3) '(4 5 6))
+;  make vector from args
+(vector 2 '(1 2 3) '(4 5 6))
 ; vector -> list
-(list [1 2 3])
+;  make list from args
+(list [1 2 3] [4 5])
+;  convert seq to list
 (list* [1 2 3])
-(into (list) [1 2 3])
 (apply list [1 2 3])
+(into (list 5 6) [1 2 3])
 
 ; ===
 ; Map
