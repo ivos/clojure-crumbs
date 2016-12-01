@@ -60,4 +60,20 @@
 
 (my-private-fn 2 3 4)
 
+
+; ===============
+; Multi-functions
+; ===============
+
+; (think overloaded methods)
+
+; TODO
+
+; ===================
+; Function conditions
+; ===================
+
+; TODO
+
+
 ;
