@@ -77,6 +77,7 @@
 ; idiomatic: use keywords as map keys
 ; (Clojure is dynamic)
 {:key-1 "value-1" :key-2 42 :key-3 ["value-3-a" "value-3-b" "value-3-c"]}
+(class {:key :val})
 ; generic col functions
 (count {:first-name "Joe", :last-name "Doe"})
 (conj {:first-name "Joe", :last-name "Doe"} [:age 42])
@@ -111,6 +112,7 @@
 ; ===
 
 #{:val-1 42 "A string."}
+(class #{:val})
 ; generic col functions
 (count #{:val-1 42 "A string."})
 (conj #{:val-1 42 "A string."} :added)
