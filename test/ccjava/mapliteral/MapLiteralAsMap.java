@@ -10,7 +10,6 @@ public class MapLiteralAsMap {
         person.put("firstName", "Joe");
         person.put("lastName", "Doe");
         person.put("age", 42);
-
         // maybe?
         person = Collections.unmodifiableMap(person);
     }

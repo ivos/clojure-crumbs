@@ -80,9 +80,9 @@
 ; Map
 ; ===
 
-{"key-1" "value-1" "key-2" "value-2" "key-3" "value-3"}
+{"key-1" "value-1", "key-2" "value-2", "key-3" "value-3"}
 ; idiomatic: use keywords as map keys
-; (Clojure is dynamic)
+; (Clojure is dynamically typed, any value is accepted)
 {:key-1 "value-1" :key-2 42 :key-3 ["value-3-a" "value-3-b" "value-3-c"]}
 (class {:key :val})
 ; generic col functions
@@ -93,12 +93,14 @@
 (get {:first-name "Joe" :last-name "Doe"} :last-name)
 (get {:first-name "Joe" :last-name "Doe"} :non-existent)
 (get {:first-name "Joe" :last-name "Doe"} :non-existent :not-found)
+; can use map as function, calls get
 ({:first-name "Joe" :last-name "Doe"} :last-name)
-;  idiomatic: use keyword as access function
+;  idiomatic: use keyword as access function, calls get, including default value
 (:last-name {:first-name "Joe" :last-name "Doe"})
 (:non-existent {:first-name "Joe" :last-name "Doe"})
 (:non-existent {:first-name "Joe" :last-name "Doe"} :not-found)
 (contains? {:first-name "Joe" :last-name "Doe"} :first-name)
+;  find entry by key
 (find {:first-name "Joe" :last-name "Doe"} :first-name)
 (first (find {:first-name "Joe" :last-name "Doe"} :first-name))
 (second (find {:first-name "Joe" :last-name "Doe"} :first-name))
@@ -129,8 +131,9 @@
 (get #{:a :b :c} :b)
 (get #{:a :b :c} :non-existent)
 (get #{:a :b :c} :non-existent :not-found)
+; can use set as function, calls get
 (#{:a :b :c} :b)
-;  idiomatic: use keyword as access function
+;  idiomatic: use keyword as access function, calls get, including default value
 (:b #{:a :b :c})
 (:non-existent #{:a :b :c})
 (:non-existent #{:a :b :c} :not-found)
@@ -138,6 +141,9 @@
 (clojure.set/union #{:a :b :c :d} #{:c :d :e :f})
 (clojure.set/intersection #{:a :b :c :d} #{:c :d :e :f})
 (clojure.set/difference #{:a :b :c :d} #{:c :d :e :f})
+; example: authorize user: user has roles, function has allowed roles => intersection not empty
+(not-empty (clojure.set/intersection #{:user :admin} #{:admin :operator}))
+(not-empty (clojure.set/intersection #{:user :admin} #{:operator :sales}))
 ; set -> vector
 (vec #{:val-1 42 "A string."})
 ; vector -> set
@@ -147,9 +153,9 @@
 ; Define a global variable
 (def var1 "value1")
 var1
-(def var2 "value2")
+(def var2 var1)
 var2
-(def var2 "value3")
+(def var2 "value2")
 var2
 var1
 
@@ -174,8 +180,10 @@ joe
 (first #{1 2 3})
 ; even (!):
 (first "abc")
-; once you learn a function,
-;  you'll be able to use it in any context, where it may make any sense
+; - once you learn a function,
+;    you'll be able to use it in any context, where it may make any sense
+; - there is AN AMAZING WEALTH of functions just in Clojure core itself...
+;    each one you learn will add another UNIVERSAL tool into your Clojure programmer's toolbox
 
 
 ; Compare to Java

@@ -12,9 +12,10 @@
 
 (my-fn-1 1 2)
 
-; shorthand defn
+; Shorthand defn, more options
 
 (defn my-fn-2
+  "My function's documentation."
   [arg-1 arg-2]
   (+ arg-1 arg-2))
 
@@ -49,7 +50,7 @@
 ; ==========================
 
 (def a-public-var 42)
-(def ^:private a-private-var 42)
+(def ^:private a-private-var 43)
 
 ; (caret ^ defines metadata)
 
@@ -65,13 +66,51 @@
 ; Overloaded functions
 ; =====================
 
-; TODO
+(defn my-overloaded-fn
+  ([] 1)
+  ([arg-1] (my-overloaded-fn 1 arg-1))
+  ([arg-1 arg-2] (+ arg-1 arg-2)))
+
+(my-overloaded-fn)
+(my-overloaded-fn 4)
+(my-overloaded-fn 4 5)
+
 
 ; ===================
 ; Function conditions
 ; ===================
 
-; TODO
+(defn plus
+  [a b]
+  (+ a b))
+
+(plus :name "string")
+(plus -5 7)
+
+(defn plus
+  [a b]
+  {:pre  [(number? a) (number? b) (pos? a) (neg? b)]
+   :post [(pos? %)]}
+  (+ a b))
+
+(plus :name "string")
+(plus -5 7)
+
+; requiring keys in a map arg
+(defn save-customer
+  [values]
+  {:pre [(map? values) (:first-name values) (:last-name values)]}
+  (println values)
+  :saved)
+
+(save-customer "my customer")
+(save-customer {})
+(save-customer {:first-name "Joe"})
+(save-customer {:first-name "Joe" :last-name "Doe"})
+
+; you can restrict types on function input (and MUCH MORE than that!)
+;  you are just not forced to do it everytime, only when it makes sense
+;  => Clojure is practical
 
 
 ;
