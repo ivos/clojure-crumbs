@@ -39,6 +39,8 @@
 (def my-literal-fn #(+ %1 %2))
 (my-literal-fn 2 3)
 
+(#(* %1 %2) 2 3)
+
 ; % .. %1
 ; %& .. & args
 
@@ -51,6 +53,8 @@
 
 (def a-public-var 42)
 (def ^:private a-private-var 43)
+a-public-var
+a-private-var
 
 ; (caret ^ defines metadata)
 
@@ -84,7 +88,7 @@
   [a b]
   (+ a b))
 
-(plus :name "string")
+'(plus :name "string")
 (plus -5 7)
 
 (defn plus
@@ -93,8 +97,8 @@
    :post [(pos? %)]}
   (+ a b))
 
-(plus :name "string")
-(plus -5 7)
+'(plus :name "string")
+'(plus -5 7)
 
 ; requiring keys in a map arg
 (defn save-customer
@@ -103,14 +107,14 @@
   (println values)
   :saved)
 
-(save-customer "my customer")
-(save-customer {})
-(save-customer {:first-name "Joe"})
+'(save-customer "my customer")
+'(save-customer {})
+'(save-customer {:first-name "Joe"})
 (save-customer {:first-name "Joe" :last-name "Doe"})
 
 ; you can restrict types on function input (and MUCH MORE than that!)
 ;  you are just not forced to do it everytime, only when it makes sense
-;  => Clojure is practical
+;  => Clojure is pragmatic
 
 
 ;

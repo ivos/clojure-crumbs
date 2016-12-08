@@ -11,16 +11,16 @@
 ; May contain alphanumeric and *, +, !, -, _, ', ?
 'my-variable*name'!?
 (class 'my-variable*name'!?)
-my-variable*name'!?
+'my-variable*name'!?
 
 ; predicates typically end with ?
 empty?
 
 ; side-effecting functions usually end with !
-update!
+'update!
 
 ; / separates namespace
-some-namespace/some-symbol
+'some-namespace/some-symbol
 
 (symbol "my-variable*name'!?")
 (symbol "my-ns" "my-var")
