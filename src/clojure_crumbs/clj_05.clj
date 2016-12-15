@@ -14,6 +14,7 @@
    :connection-uri "jdbc:h2:file:./target/db/sample;AUTO_SERVER=TRUE;DB_CLOSE_ON_EXIT=FALSE"
    :user           "sa"
    :password       ""})
+;    ;TRACE_LEVEL_SYSTEM_OUT=2
 
 ; execute DDL commands
 (db/db-do-commands
@@ -29,6 +30,9 @@
 
 
 ; execute DML commands and queries
+
+; with-db-connection: opens and closes connection for statements within, txn not created
+; with-db-transaction: opens and closes txn
 (db/with-db-connection
   [con db-spec]
   (db/delete! con :customer [])
@@ -37,12 +41,12 @@
   (db/insert! con :customer {:first_name "Darth", :last_name "Vader" :age 25})
   (db/query con ["SELECT * FROM customer"]))
 
-(db/with-db-connection
+(db/with-db-transaction
   [con db-spec]
   (db/update! con :customer {:age 59} ["last_name = ?" "Vader"])
   (db/query con ["SELECT * FROM customer where last_name = ?" "Vader"]))
 
-(db/with-db-connection
+(db/with-db-transaction
   [con db-spec]
   (db/delete! con :customer ["last_name = ?" "Organa"])
   (db/query con ["SELECT * FROM customer"]))
