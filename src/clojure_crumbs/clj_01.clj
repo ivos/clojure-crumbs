@@ -1,5 +1,4 @@
 ; Scalar data types
-(ns clojure-crumbs.clj-01)
 
 ; function call
 (+ 1 1)

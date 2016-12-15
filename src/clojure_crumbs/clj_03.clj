@@ -1,5 +1,4 @@
 ; Collection types
-(ns clojure-crumbs.clj-03)
 
 ; ============================
 ; DATA TYPES: COLLECTION TYPES
@@ -149,6 +148,8 @@
 ; vector -> set
 (set [:val-1 42 "A string."])
 
+
+; ----------
 
 ; Define a global variable
 (def var1 "value1")

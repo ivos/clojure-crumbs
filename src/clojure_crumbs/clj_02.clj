@@ -1,5 +1,4 @@
 ; Symbols, keywords
-(ns clojure-crumbs.clj-02)
 
 ; =======
 ; Symbols
@@ -11,7 +10,7 @@
 ; May contain alphanumeric and *, +, !, -, _, ', ?
 'my-variable*name'!?
 (class 'my-variable*name'!?)
-'my-variable*name'!?
+;my-variable*name'!?
 
 ; predicates typically end with ?
 empty?
@@ -26,10 +25,6 @@ empty?
 (symbol "my-ns" "my-var")
 (symbol? 'my-var)
 (symbol? 42)
-
-; . qualifies class names
-java.lang.Long
-(class java.lang.Long)
 
 ; ========
 ; Keywords
@@ -54,9 +49,13 @@ java.lang.Long
 ; default namespace via ::
 ::namespaced-from-the-local-ns
 (namespace ::namespaced-from-the-local-ns)
+; global var holding current namespace
+*ns*
 
 (keyword "my-ns" "my-keyword")
 (keyword? :name)
 (keyword? 42)
+
+
 
 ;

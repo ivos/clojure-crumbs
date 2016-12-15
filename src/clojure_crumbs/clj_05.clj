@@ -1,5 +1,5 @@
 ; jdbc
-(ns clojure-crumbs.clj-05
+(ns clj-05
   (:require [clojure.java.jdbc :as db]))
 
 ; =================

@@ -1,5 +1,5 @@
 ; Functions
-(ns clojure-crumbs.clj-04)
+(ns clj-04)
 
 ; ====================
 ; Function definitions
@@ -26,7 +26,6 @@
 '(defn my-varargs-fn
    [arg-1 arg-2 & remaining-args]
    (* (+ arg-1 arg-2) (+ remaining-args)))
-; apply
 
 '(my-varargs-fn 2 3 4 5)
 
@@ -104,7 +103,7 @@ a-private-var
 (defn save-customer
   [values]
   {:pre [(map? values) (:first-name values) (:last-name values)]}
-  (println values)
+  ;(println values)
   :saved)
 
 '(save-customer "my customer")
